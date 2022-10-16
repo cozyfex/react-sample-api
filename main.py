@@ -21,16 +21,6 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-
-
 @app.get("/user/list")
 def get_user_list():
     result = ListModel()
@@ -48,7 +38,7 @@ def get_user_list():
 
 
 @app.get("/user/view/{user_id}")
-def get_user_list():
+def get_user_view():
     result = UserModel()
 
     profile = fake.profile()
@@ -61,7 +51,7 @@ def get_user_list():
 
 
 @app.get("/board/list")
-def get_user_list():
+def get_board_list():
     result = ListModel()
 
     for _ in range(22):
@@ -72,6 +62,28 @@ def get_user_list():
         board.name = profile["name"]
         result.list.append(board)
 
+    json_compatible_item_data = jsonable_encoder(result)
+
+    return JSONResponse(content=json_compatible_item_data)
+
+
+@app.post("/board/write")
+def post_board_write(item: BoardModel):
+    json_compatible_item_data = jsonable_encoder(item)
+
+    return JSONResponse(content=json_compatible_item_data)
+
+
+@app.put("/board/write")
+def put_board_write(item: BoardModel):
+    json_compatible_item_data = jsonable_encoder(item)
+
+    return JSONResponse(content=json_compatible_item_data)
+
+
+@app.delete("/board/delete/{board_name}")
+def delete_board(board_name):
+    result = {"board_name": board_name}
     json_compatible_item_data = jsonable_encoder(result)
 
     return JSONResponse(content=json_compatible_item_data)
