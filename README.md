@@ -14,8 +14,3 @@
 
 - ```http://localhost:8000/docs```
 
-## API List
-
-- ```http://localhost:8000/user/list```
-- ```http://localhost:8000/user/view/{user_id}```
-- ```http://localhost:8000/board/list```
