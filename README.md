@@ -14,3 +14,8 @@
 
 - ```http://localhost:8000/docs```
 
+## Run Command
+
+```shell
+uvicorn main:app --reload
+```
