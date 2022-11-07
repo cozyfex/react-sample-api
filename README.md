@@ -9,6 +9,7 @@
 ## Frontend
 
 - [React Sample](https://github.com/cozyfex/vite-react-typescript-recoil-query)
+- [NextJS Sample](https://github.com/cozyfex/next-typescript-recoil-reactquery)
 
 ## API documents
 

@@ -38,7 +38,7 @@ def get_user_list():
 
 
 @app.get("/user/view/{user_id}")
-def get_user_view():
+def get_user_view(user_id):
     result = UserModel()
 
     profile = fake.profile()
@@ -63,6 +63,19 @@ def get_board_list():
         result.list.append(board)
 
     json_compatible_item_data = jsonable_encoder(result)
+
+    return JSONResponse(content=json_compatible_item_data)
+
+
+@app.get("/board/view/{title}")
+def get_board_view(title):
+    board = BoardModel()
+    profile = fake.profile()
+    board.readCount = fake.unique.random_int()
+    board.title = profile["company"]
+    board.name = profile["name"]
+
+    json_compatible_item_data = jsonable_encoder(board)
 
     return JSONResponse(content=json_compatible_item_data)
 
