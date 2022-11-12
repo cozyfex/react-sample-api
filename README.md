@@ -2,7 +2,7 @@
 
 ## Specific
 
-- ```Python 3.9.6```
+- ```Python 3.11```
 - ```Fast API 0.85.1```
 - ```Faker 15.1.1```
 
